@@ -51,4 +51,5 @@ def main_function():
 
 	except KeyboardInterrupt:
 		pass
-main_function()
+if __name__ == "__main__":
+	main_function()
