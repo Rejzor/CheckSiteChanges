@@ -18,7 +18,7 @@
 <div id="content">
 	<div class="logo_box"><h1>Nothing<br/>here<br/>yet</h1></div>          
 	<div class="main_box">
-		<h2>Something awesome is coming soon...<br/></h2>
+		<h2>Something awesome is coming soon.<br/></h2>
 		
 		<ul class="info">
 			<li>
