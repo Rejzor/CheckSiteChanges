@@ -2,6 +2,16 @@ import subprocess #for linux commands
 import urllib.request #download site
 import time
 import sys
+import smtplib
+def send_email(email,password):
+	message = 'Subject: {}\n\n{}'.format('SITE HAS BEEN CHANGED', "SITE HAS BEEN CHANGED")
+	mail = smtplib.SMTP('smtp.gmail.com',587)
+	mail.ehlo()
+	mail.starttls()
+	mail.login(email,password)
+	mail.sendmail(email,'damian.kuter@gmail.com', message)
+	mail.close()
+
 def download_to_file(link,file_name):
 	source_site = urllib.request.urlopen(link)
 	subprocess.call(["touch", file_name])
@@ -13,6 +23,8 @@ def download_to_file(link,file_name):
 def diff_list(source_site_list,compare_site_list):
 	if source_site_list != compare_site_list:
 		print("Site has been changed")
+		send_email('developer.messenger@gmail.com','***********')
+		subprocess.Popen(['notify-send', 'SITE HAS BEEN CHANGED'])
 		sys.exit(0) #Close program if site changed
 
 
